@@ -1,0 +1,32 @@
+{
+  "name": "subdivide-arc",
+  "version": "0.0.0",
+  "description": "subdivide an arc into line segments",
+  "main": "subdivide-arc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmpvar/subdivide-arc.git"
+  },
+  "keywords": [
+    "arc",
+    "geometry",
+    "subdivide"
+  ],
+  "author": "Elijah Insua <tmpvar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmpvar/subdivide-arc/issues"
+  },
+  "homepage": "https://github.com/tmpvar/subdivide-arc",
+  "devDependencies": {
+    "tape": "^2.13.4"
+  },
+  "dependencies": {
+    "robust-product": "^1.0.0",
+    "robust-subtract": "^1.0.0",
+    "robust-sum": "^1.0.0"
+  }
+}
