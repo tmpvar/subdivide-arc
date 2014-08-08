@@ -1,55 +1,50 @@
-var _add = require('robust-sum');
-var _mult = require('robust-product');
-var _sub = require('robust-product');
+// Adapted from http://slabode.exofire.net/circle_draw.shtml
 
-function add(a, b) {
-  var r = _add(a, b);
-  console.log("%s = %s + %s", r, a, b);
-  return r;
-}
-
-function mult(a, b) {
-  var r = _mult(a, b);
-  console.log("%s = %s * %s", r, a, b);
-  return r;
-}
-
-function sub(a, b) {
-  var r = _sub(a, b);
-  console.log("%s = %s - %s", r, a, b);
-  return r;
-}
-
+var split = require('robust-split');
+var scale = require('robust-scale')
+var add = require('robust-sum');
+var mul = require('robust-product');
+var num = require('robust-estimate-float');
 
 module.exports = subdivideArc;
 
+function sub(a, b) {
+  return add(a, scale(b, -1));
+}
+
 var sin = Math.sin;
 var cos = Math.cos;
-var sqrt = Math.sqrt;
+var tan = Math.tan;
 
-function reducer(a, b) {
-  return a + b;
-}
+function subdivideArc(cx, cy, r, start, end, n, invertDirection) {
 
-function predicate(a) {
-  return mult([a], [1]);
-}
+  var diff = (invertDirection) ? start-end : end-start;
+  var theta = diff / (n - 1);
 
-function subdivideArc(x, y, r, theta, N) {
-  var ret = new Array(N);
-  var a = theta/(N-1);
-  var dx = [r];
-  var dy = [0];
+  cx = split(cx);
+  cy = split(cy);
 
-  var ctheta = [cos(a)];
-  var stheta = [sin(a)];
+  r = split(r);
 
-  for(var i = 1; i != N; ++i) {
-    var dxtemp = sub(mult(ctheta, dx), mult(stheta, dy));
+  var tangent = split(tan(theta));
+  var radial = split(cos(theta));
 
-    dy = add(mult(stheta, dx), mult(ctheta, dy));
-    dx = dxtemp;
-    ret[i] = [dx.reduce(reducer, 0), dy.reduce(reducer, 0)];
+  var x = mul(r, split(cos(start)));
+  var y = mul(r, split(sin(start)));
+
+  var ret = Array(n);
+
+  for (var i=0; i<n; i++) {
+    ret[i] = [
+      num(add(x, cx)),
+      num(add(y, cy))
+    ];
+
+    var tx = scale(y, -1);
+    var ty = x;//.concat();
+
+    x = mul(add(x, mul(tx, tangent)), radial);
+    y = mul(add(y, mul(ty, tangent)), radial);
   }
 
   return ret;

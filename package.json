@@ -1,10 +1,11 @@
 {
   "name": "subdivide-arc",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "subdivide an arc into line segments",
   "main": "subdivide-arc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo" : "beefy demo.js --open --live"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,14 @@
   },
   "homepage": "https://github.com/tmpvar/subdivide-arc",
   "devDependencies": {
+    "fc": "^1.0.0",
+    "robust-estimate-float": "^1.0.0",
     "tape": "^2.13.4"
   },
   "dependencies": {
     "robust-product": "^1.0.0",
-    "robust-subtract": "^1.0.0",
+    "robust-scale": "^1.0.2",
+    "robust-split": "^1.0.0",
     "robust-sum": "^1.0.0"
   }
 }
