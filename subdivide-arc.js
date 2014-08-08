@@ -41,7 +41,7 @@ function subdivideArc(cx, cy, r, start, end, n, invertDirection) {
     ];
 
     var tx = scale(y, -1);
-    var ty = x;//.concat();
+    var ty = x;
 
     x = mul(add(x, mul(tx, tangent)), radial);
     y = mul(add(y, mul(ty, tangent)), radial);

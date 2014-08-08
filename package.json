@@ -4,7 +4,7 @@
   "description": "subdivide an arc into line segments",
   "main": "subdivide-arc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test.js",
     "demo" : "beefy demo.js --open --live"
   },
   "repository": {
