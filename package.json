@@ -24,10 +24,10 @@
   "homepage": "https://github.com/tmpvar/subdivide-arc",
   "devDependencies": {
     "fc": "^1.0.0",
-    "robust-estimate-float": "^1.0.0",
     "tape": "^2.13.4"
   },
   "dependencies": {
+    "robust-estimate-float": "^1.0.0",
     "robust-product": "^1.0.0",
     "robust-scale": "^1.0.2",
     "robust-split": "^1.0.0",
