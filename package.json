@@ -1,11 +1,11 @@
 {
   "name": "subdivide-arc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "subdivide an arc into line segments",
   "main": "subdivide-arc.js",
   "scripts": {
     "test": "node test.js",
-    "demo" : "beefy demo.js --open --live"
+    "demo": "beefy demo.js --open --live"
   },
   "repository": {
     "type": "git",
